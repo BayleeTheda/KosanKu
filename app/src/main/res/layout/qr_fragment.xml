@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/qr_code"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QR Code"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="150dp"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="460dp"
+            android:background="@drawable/rounded_box"
+            android:layout_marginTop="15dp">
+
+
+            <ImageView
+                android:layout_width="361dp"
+                android:layout_height="374dp"
+                android:background="@drawable/qr"
+                tools:layout_editor_absoluteX="25dp"
+                tools:layout_editor_absoluteY="163dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="top|center_horizontal"
+                />
+
+            <TextView
+            android:id="@+id/note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note : "
+            android:textColor="@color/black"
+            android:textSize="16dp"
+                android:layout_marginTop="400dp"
+                android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/peringatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jangan bagikan QR Anda kepada siapapun!"
+            android:textColor="@color/red"
+            android:textSize="16dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="55dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="425dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masa Berlaku"
+                    android:textAlignment="center"
+                    android:textColor="#292F36"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="90dp"
+                    />
+
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="05.00"
+                android:textAlignment="center"
+                android:textColor="#A41F13"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>
