@@ -117,7 +117,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="230dp"
-                android:backgroundTint="@color/brown"
+                android:backgroundTint="#FAF4E9"
                 app:cardCornerRadius="0dp">
 
                 <TextView
