@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/maroon"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            >
+
+            <TextView
+                android:id="@+id/icon_app"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="KosanKu"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/ivory"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+            <ImageView
+                android:id="@+id/profile_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/account_circle_24dp_e3e3e3_fill1_wght400_grad0_opsz24"/>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintRight_toLeftOf="@id/profile_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/notifications_24dp_e3e3e3_fill1_wght400_grad0_opsz24"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</RelativeLayout>
