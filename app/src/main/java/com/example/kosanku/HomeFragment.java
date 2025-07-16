@@ -2,6 +2,7 @@ package com.example.kosanku;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -77,6 +78,18 @@ public class HomeFragment extends Fragment {
 
         banner.setImageList(slideBanner, ScaleTypes.CENTER_INSIDE);
 
+        CardView vehicle_btn = view.findViewById(R.id.vehicle_btn);
+        vehicle_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new VehicleParkFragment());
+            }
+        });
+
         return view;
+    }
+
+    public void setFragment(Fragment fragment){
+        getFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
     }
 }
