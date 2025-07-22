@@ -13,8 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@color/maroon"
-            android:paddingStart="25dp"
-            android:paddingEnd="25dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             >
 
             <TextView
@@ -33,6 +33,7 @@
 
             <ImageView
                 android:id="@+id/profile_icon"
+                android:clickable="true"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:layout_constraintRight_toRightOf="parent"
@@ -41,6 +42,8 @@
                 android:src="@drawable/account_circle_24dp_e3e3e3_fill1_wght400_grad0_opsz24"/>
 
             <ImageView
+                android:id="@+id/notification_icon"
+                android:clickable="true"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 app:layout_constraintRight_toLeftOf="@id/profile_icon"
