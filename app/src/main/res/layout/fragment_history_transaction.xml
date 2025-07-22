@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.microsoft.com/tools"
     android:id="@+id/ht"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +9,17 @@
     android:background="#f0f0f0">
 
     <TextView
-    android:id="@+id/tv_history_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="24dp"
-    android:text="History Transaction"
-    android:textColor="@android:color/black"
-    android:textSize="24sp"
-    android:textStyle="bold"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tv_history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="History Transaction"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/search_bar_layout"
@@ -53,43 +53,42 @@
             android:layout_marginStart="8dp"
             android:entries="@array/filter_options"
             />
-
     </LinearLayout>
-
 
     <LinearLayout
-        android:layout_width="378dp"
-        android:layout_height="557dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="133dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/search_bar_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="118dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="0dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/cart_historytransaction"
             android:clipToPadding="false"
             android:elevation="2dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="133dp">
+            android:padding="16dp">
 
-            <!-- Tanggal -->
             <TextView
-                android:id="@+id/tanggal"
+                android:id="@+id/tanggal1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25/05/2025"
                 android:textColor="@android:color/darker_gray"
-
                 android:textSize="12sp" />
 
-            <!-- Judul -->
             <TextView
-                android:id="@+id/judul"
+                android:id="@+id/judul1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -98,33 +97,86 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- Row untuk harga dan status -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp">
 
-                <!-- Harga -->
                 <TextView
-                    android:id="@+id/harga"
+                    android:id="@+id/harga1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 3.000.000"
+                    android:text="Rp 3.000.000,00"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
-                <!-- Status -->
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginBottom="0dp"
+                    android:background="#dd4f69"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="4dp"
+                    android:text="Bayar"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/cart_historytransaction"
+            android:clipToPadding="false"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tanggal2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12/05/2025"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/judul2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Tagihan Laundry"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/harga2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 54.000,00"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/status2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:background="#00A000"
                     android:paddingLeft="12dp"
                     android:paddingTop="4dp"
@@ -134,71 +186,57 @@
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
             </RelativeLayout>
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="118dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
             android:background="@drawable/cart_historytransaction"
             android:clipToPadding="false"
+            android:layout_marginBottom="16dp"
             android:elevation="2dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="133dp">
+            android:padding="16dp">
 
-
-            <!-- Tanggal -->
             <TextView
-                android:id="@+id/tanggal"
+                android:id="@+id/tanggal3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25/05/2025"
+                android:text="21/04/2025"
                 android:textColor="@android:color/darker_gray"
-
                 android:textSize="12sp" />
 
-            <!-- Judul -->
             <TextView
-                android:id="@+id/judul"
+                android:id="@+id/judul3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Tagihan Cleaning Service"
+                android:text="Tagihan Makanan"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- Row untuk harga dan status -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp">
 
-                <!-- Harga -->
                 <TextView
-                    android:id="@+id/harga"
+                    android:id="@+id/harga3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 3.000.000"
+                    android:text="Rp 20.000,00"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
-                <!-- Status -->
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginBottom="0dp"
                     android:background="#00A000"
                     android:paddingLeft="12dp"
                     android:paddingTop="4dp"
@@ -208,36 +246,29 @@
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
             </RelativeLayout>
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="118dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/cart_historytransaction"
             android:clipToPadding="false"
             android:elevation="2dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="133dp">
+            android:padding="16dp">
 
-
-            <!-- Tanggal -->
             <TextView
-                android:id="@+id/tanggal"
+                android:id="@+id/tanggal4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25/05/2025"
+                android:text="12/05/2025"
                 android:textColor="@android:color/darker_gray"
-
                 android:textSize="12sp" />
 
-            <!-- Judul -->
             <TextView
-                android:id="@+id/judul"
+                android:id="@+id/judul4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -246,33 +277,26 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- Row untuk harga dan status -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp">
 
-                <!-- Harga -->
                 <TextView
-                    android:id="@+id/harga"
+                    android:id="@+id/harga4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 3.000.000"
+                    android:text="Rp 540.000,00"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
-                <!-- Status -->
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginBottom="0dp"
                     android:background="#00A000"
                     android:paddingLeft="12dp"
                     android:paddingTop="4dp"
@@ -282,21 +306,6 @@
                     android:textColor="#FFFFFF"
                     android:textStyle="bold" />
             </RelativeLayout>
-
         </LinearLayout>
-
-
     </LinearLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
