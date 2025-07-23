@@ -25,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
         Fragment qrFragment = new QrFragment();
         Fragment historyFragment = new HistoryFragment();
 
+        boolean goToHome = getIntent().getBooleanExtra("goToHome", false);
+
+        if (goToHome) {
+            // Tampilkan HomeFragment dan set item nav aktif
+            setCurrentFragment(homeFragment);
+            bottomNavigationView.setSelectedItemId(R.id.home_btn);
+        } else {
+            // Default: tetap tampilkan home
+            setCurrentFragment(homeFragment);
+            bottomNavigationView.setSelectedItemId(R.id.home_btn);
+        }
+
         setCurrentFragment(homeFragment);
         bottomNavigationView.setSelectedItemId(R.id.home_btn);
 

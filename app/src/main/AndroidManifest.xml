@@ -12,15 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KosanKu"
         tools:targetApi="31">
+
+        <!-- Jadikan LoginActivity sebagai launcher -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Ini activity utama setelah login -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
     </application>
     <!--Permission for internet-->
     <uses-permission android:name="android.permission.INTERNET" />
