@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ImageView notif_btn = findViewById(R.id.notification_icon);
+
+
+
         notif_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
