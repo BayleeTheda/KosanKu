@@ -2,6 +2,7 @@ package com.example.kosanku;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -77,6 +78,42 @@ public class HomeFragment extends Fragment {
 
         banner.setImageList(slideBanner, ScaleTypes.CENTER_INSIDE);
 
+        CardView vehicle_btn = view.findViewById(R.id.vehicle_btn);
+        vehicle_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new VehicleParkFragment());
+            }
+        });
+
+        CardView laundry_btn = view.findViewById(R.id.laundry_btn);
+        laundry_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new LaundryFragment());
+            }
+        });
+
+//        CardView food_btn = view.findViewById(R.id.food_btn);
+//        food_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setFragment(new FoodFragment());
+//            }
+//        });
+
+        CardView report_btn = view.findViewById(R.id.report_btn);
+        report_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new ReportFragment());
+            }
+        });
+
         return view;
+    }
+
+    public void setFragment(Fragment fragment){
+        getFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
     }
 }

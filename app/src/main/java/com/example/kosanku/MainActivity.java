@@ -2,6 +2,8 @@ package com.example.kosanku;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             return true;
+        });
+
+        ImageView notif_btn = findViewById(R.id.notification_icon);
+
+
+
+        notif_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCurrentFragment(new NotificationFragment());
+            }
         });
     }
 
