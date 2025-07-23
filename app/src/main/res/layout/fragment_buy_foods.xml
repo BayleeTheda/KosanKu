@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuyFoods">
+    tools:context=".BuyFoods"
+    android:paddingTop="80dp"
+    android:paddingBottom="80dp">
     <ScrollView
         android:id="@+id/scrollViewContent"
         android:layout_width="match_parent"
@@ -38,20 +40,63 @@
                         android:layout_height="120dp"
                         android:background="#2196F3"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/Rendang"
+                        android:elevation="10dp"
                         android:contentDescription="Food Image 1" />
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical">
 
-                    <TextView
-                        android:id="@+id/food_name_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rendang"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/food_name_1"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                            android:shadowColor="@color/black"
+                            android:text="Rendang"
+                            android:textColor="@android:color/black"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="17dp"
+                                android:src="@drawable/rating"
+                                android:layout_gravity="bottom"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5/5"
+                                android:textSize="15sp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    
 
                     <TextView
                         android:id="@+id/food_qty_available_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sisa 28/30 pcs"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/food_price_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp.8.000,00/pcs"
@@ -82,7 +127,7 @@
                             android:id="@+id/text_quantity_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0"
+                            android:text="2"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="@android:color/black"
@@ -106,141 +151,88 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="253dp"
+                    android:layout_marginStart="4dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:background="@android:color/white"
                     android:elevation="4dp"
-                    android:padding="8dp"
-                    android:layout_marginStart="4dp">
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
                     <ImageView
                         android:id="@+id/food_image_2"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:background="#2196F3"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="Food Image 2" />
+                        android:contentDescription="Food Image 2"
+                        android:scaleType="centerCrop" />
 
                     <TextView
                         android:id="@+id/food_name_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nama makanan"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:text="Tunjang Elang"
                         android:textColor="@android:color/black"
-                        android:layout_marginTop="8dp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/food_qty_available_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="qty 30"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/darker_gray" />
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="8dp">
+                        android:orientation="horizontal">
 
                         <Button
                             android:id="@+id/button_minus_2"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:text="-"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
                             android:backgroundTint="#F44336"
-                            android:textColor="@android:color/white"
                             android:gravity="center"
+                            android:minWidth="0dp"
                             android:padding="0dp"
-                            android:minWidth="0dp" />
+                            android:text="-"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/text_quantity_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/black"
                             android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp" />
+                            android:layout_marginEnd="8dp"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/button_plus_2"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:text="+"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
                             android:backgroundTint="#4CAF50"
-                            android:textColor="@android:color/white"
                             android:gravity="center"
+                            android:minWidth="0dp"
                             android:padding="0dp"
-                            android:minWidth="0dp" />
+                            android:text="+"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginBottom="8dp">
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:background="@android:color/white" android:elevation="4dp" android:padding="8dp" android:layout_marginEnd="4dp">
-                    <ImageView android:id="@+id/food_image_3" android:layout_width="match_parent" android:layout_height="120dp" android:background="#2196F3" android:scaleType="centerCrop" android:contentDescription="Food Image 3" />
-                    <TextView android:id="@+id/food_name_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nama makanan" android:textSize="16sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginTop="8dp" />
-                    <TextView android:id="@+id/food_qty_available_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="qty 30" android:textSize="14sp" android:textColor="@android:color/darker_gray" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
-                        <Button android:id="@+id/button_minus_3" android:layout_width="40dp" android:layout_height="40dp" android:text="-" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#F44336" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                        <TextView android:id="@+id/text_quantity_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginStart="8dp" android:layout_marginEnd="8dp" />
-                        <Button android:id="@+id/button_plus_3" android:layout_width="40dp" android:layout_height="40dp" android:text="+" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#4CAF50" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:background="@android:color/white" android:elevation="4dp" android:padding="8dp" android:layout_marginStart="4dp">
-                    <ImageView android:id="@+id/food_image_4" android:layout_width="match_parent" android:layout_height="120dp" android:background="#2196F3" android:scaleType="centerCrop" android:contentDescription="Food Image 4" />
-                    <TextView android:id="@+id/food_name_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nama makanan" android:textSize="16sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginTop="8dp" />
-                    <TextView android:id="@+id/food_qty_available_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="qty 30" android:textSize="14sp" android:textColor="@android:color/darker_gray" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
-                        <Button android:id="@+id/button_minus_4" android:layout_width="40dp" android:layout_height="40dp" android:text="-" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#F44336" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                        <TextView android:id="@+id/text_quantity_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginStart="8dp" android:layout_marginEnd="8dp" />
-                        <Button android:id="@+id/button_plus_4" android:layout_width="40dp" android:layout_height="40dp" android:text="+" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#4CAF50" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginBottom="8dp">
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:background="@android:color/white" android:elevation="4dp" android:padding="8dp" android:layout_marginEnd="4dp">
-                    <ImageView android:id="@+id/food_image_5" android:layout_width="match_parent" android:layout_height="120dp" android:background="#2196F3" android:scaleType="centerCrop" android:contentDescription="Food Image 5" />
-                    <TextView android:id="@+id/food_name_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nama makanan" android:textSize="16sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginTop="8dp" />
-                    <TextView android:id="@+id/food_qty_available_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="qty 30" android:textSize="14sp" android:textColor="@android:color/darker_gray" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
-                        <Button android:id="@+id/button_minus_5" android:layout_width="40dp" android:layout_height="40dp" android:text="-" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#F44336" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                        <TextView android:id="@+id/text_quantity_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginStart="8dp" android:layout_marginEnd="8dp" />
-                        <Button android:id="@+id/button_plus_5" android:layout_width="40dp" android:layout_height="40dp" android:text="+" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#4CAF50" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:background="@android:color/white" android:elevation="4dp" android:padding="8dp" android:layout_marginStart="4dp">
-                    <ImageView android:id="@+id/food_image_6" android:layout_width="match_parent" android:layout_height="120dp" android:background="#2196F3" android:scaleType="centerCrop" android:contentDescription="Food Image 6" />
-                    <TextView android:id="@+id/food_name_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nama makanan" android:textSize="16sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginTop="8dp" />
-                    <TextView android:id="@+id/food_qty_available_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="qty 30" android:textSize="14sp" android:textColor="@android:color/darker_gray" />
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
-                        <Button android:id="@+id/button_minus_6" android:layout_width="40dp" android:layout_height="40dp" android:text="-" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#F44336" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                        <TextView android:id="@+id/text_quantity_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_marginStart="8dp" android:layout_marginEnd="8dp" />
-                        <Button android:id="@+id/button_plus_6" android:layout_width="40dp" android:layout_height="40dp" android:text="+" android:textSize="20sp" android:textStyle="bold" android:backgroundTint="#4CAF50" android:textColor="@android:color/white" android:gravity="center" android:padding="0dp" android:minWidth="0dp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -253,7 +245,8 @@
         android:background="#E0E0E0"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
