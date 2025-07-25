@@ -46,4 +46,11 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.0")
+    // build.gradle (Module: app)
+
+//    implementation('androidx.appcompat:appcompat:1.6.1')
+//    implementation('androidx.constraintlayout:constraintlayout:2.1.4')
+//    implementation('com.google.android.material:material:1.12.0')
+//    implementation('androidx.cardview:cardview:1.0.0')
+
 }
