@@ -86,6 +86,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        CardView laundry_btn = view.findViewById(R.id.laundry_btn);
+        laundry_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new LaundryFragment());
+            }
+        });
+
+//        CardView food_btn = view.findViewById(R.id.food_btn);
+//        food_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setFragment(new FoodFragment());
+//            }
+//        });
+
+        CardView report_btn = view.findViewById(R.id.report_btn);
+        report_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new ReportFragment());
+            }
+        });
+
         return view;
     }
 
