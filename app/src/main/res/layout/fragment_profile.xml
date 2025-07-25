@@ -126,7 +126,7 @@
         android:layout_height="50dp"
         android:background="@drawable/bg_edittext"
         android:padding="10dp"
-        android:text="A012"
+        android:text="A313"
         app:layout_constraintTop_toBottomOf="@id/labelRoom"
         app:layout_constraintStart_toEndOf="@+id/phoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
