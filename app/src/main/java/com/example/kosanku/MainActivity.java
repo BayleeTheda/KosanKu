@@ -1,74 +1,113 @@
 package com.example.kosanku;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView profileIcon;
+    private View appBar; // Deklarasi untuk App Bar
+    private BottomNavigationView bottomNav; // Deklarasi untuk Bottom Nav
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+        // Inisialisasi semua view
+        bottomNav = findViewById(R.id.bottomNav);
+        appBar = findViewById(R.id.app_bar); // Inisialisasi App Bar
+        ImageView notif_btn = findViewById(R.id.notification_icon);
+        profileIcon = findViewById(R.id.profile_icon);
 
-        Fragment homeFragment = new HomeFragment();
-        Fragment qrFragment = new QrFragment();
-        Fragment historyFragment = new HistoryFragment();
-
-        boolean goToHome = getIntent().getBooleanExtra("goToHome", false);
-
-        if (goToHome) {
-            // Tampilkan HomeFragment dan set item nav aktif
-            setCurrentFragment(homeFragment);
-            bottomNavigationView.setSelectedItemId(R.id.home_btn);
-        } else {
-            // Default: tetap tampilkan home
-            setCurrentFragment(homeFragment);
-            bottomNavigationView.setSelectedItemId(R.id.home_btn);
+        // Set fragment awal jika activity baru dibuat
+        if (savedInstanceState == null) {
+            setCurrentFragment(new HomeFragment(), false);
+            bottomNav.setSelectedItemId(R.id.home_btn);
         }
 
-        setCurrentFragment(homeFragment);
-        bottomNavigationView.setSelectedItemId(R.id.home_btn);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            if(item.getItemId() == R.id.home_btn){
-                setCurrentFragment(homeFragment);
-                return true;
-            }else if(item.getItemId() == R.id.qr_btn){
-                setCurrentFragment(qrFragment);
-                return true;
-            }else if(item.getItemId() == R.id.history_btn){
-                setCurrentFragment(historyFragment);
-                return true;
+        // Listener untuk Bottom Navigation
+        bottomNav.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home_btn) {
+                setCurrentFragment(new HomeFragment(), false);
+            } else if (itemId == R.id.qr_btn) {
+                setCurrentFragment(new QrFragment(), false);
+            } else if (itemId == R.id.history_btn) {
+                setCurrentFragment(new HistoryFragment(), false);
             }
             return true;
         });
 
-        ImageView notif_btn = findViewById(R.id.notification_icon);
-
-
-
-        notif_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setCurrentFragment(new NotificationFragment());
-            }
+        // Listener untuk tombol notifikasi
+        notif_btn.setOnClickListener(v -> {
+            setCurrentFragment(new NotificationFragment(), true);
         });
+
+        // Listener untuk tombol profile
+        profileIcon.setOnClickListener(v -> {
+            setCurrentFragment(new ProfileFragment(), true);
+        });
+
+        // Listener untuk menangani tombol 'kembali'
+        handleOnBackPressed();
     }
 
-    private void setCurrentFragment(Fragment fragment){
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
+    private void setCurrentFragment(Fragment fragment, boolean addToBackStack) {
+        // Cek jenis fragment untuk menampilkan/menyembunyikan navigasi
+        if (fragment instanceof ProfileFragment) {
+            showNavigation(false); // Sembunyikan jika ProfileFragment
+        } else {
+            showNavigation(true); // Tampilkan untuk fragment lain
+        }
+
+        // Lakukan transaksi fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.flFragment, fragment);
+
+        if (addToBackStack) {
+            transaction.addToBackStack(fragment.getClass().getSimpleName());
+        }
+
+        transaction.commit();
+    }
+
+    // Method baru untuk mengatur visibilitas navigasi
+    private void showNavigation(boolean show) {
+        if (show) {
+            appBar.setVisibility(View.VISIBLE);
+            bottomNav.setVisibility(View.VISIBLE);
+        } else {
+            appBar.setVisibility(View.GONE);
+            bottomNav.setVisibility(View.GONE);
+        }
+    }
+
+    // Method untuk memastikan navigasi muncul kembali saat tombol back ditekan
+    private void handleOnBackPressed() {
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flFragment);
+            if (!(currentFragment instanceof ProfileFragment)) {
+                // Jika fragment yang tampil BUKAN ProfileFragment, pastikan navigasi terlihat
+                showNavigation(true);
+
+                // Update juga item yang aktif di bottom nav
+                if (currentFragment instanceof HomeFragment) {
+                    bottomNav.getMenu().findItem(R.id.home_btn).setChecked(true);
+                } else if (currentFragment instanceof QrFragment) {
+                    bottomNav.getMenu().findItem(R.id.qr_btn).setChecked(true);
+                } else if (currentFragment instanceof HistoryFragment) {
+                    bottomNav.getMenu().findItem(R.id.history_btn).setChecked(true);
+                }
+            }
+        });
     }
 }

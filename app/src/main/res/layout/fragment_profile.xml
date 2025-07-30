@@ -1,147 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBF4F1"
-    android:padding="20dp">
+    android:background="#FBF4F1">
 
-    <!-- Foto Profil -->
+    <!-- Banner Header Image -->
     <FrameLayout
-        android:id="@+id/profileContainer"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/bg_circle"
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/banner_profile"
+        android:clipToOutline="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/profileImage"
+            android:id="@+id/bannerImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
+            android:src="@drawable/profile" /> <!-- ganti dengan banner kamu -->
+    </FrameLayout>
+
+    <!-- Foto Profil Bundar -->
+    <FrameLayout
+        android:id="@+id/profileContainer"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_circle"
+        app:layout_constraintTop_toTopOf="@+id/bannerContainer"
+        app:layout_constraintBottom_toBottomOf="@+id/bannerContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:translationY="110dp"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_circle"
             android:clipToOutline="true"
-            android:src="@drawable/profile"
-            android:background="@drawable/bg_circle" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile" />
 
         <ImageView
             android:id="@+id/editProfileIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="bottom|end"
-            android:layout_margin="3dp"
+            android:layout_margin="4dp"
             android:src="@drawable/edit" />
     </FrameLayout>
 
-    <!-- Nama -->
-    <TextView
-        android:id="@+id/labelNama"
-        android:layout_width="wrap_content"
+    <!-- Kontainer isi form -->
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nama"
-        android:textSize="14sp"
-        android:textColor="#000"
+        android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/profileContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp" />
-
-    <EditText
-        android:id="@+id/editNama"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_edittext"
-        android:padding="10dp"
-        android:text="Khabib Nurmagomedov"
-        app:layout_constraintTop_toBottomOf="@id/labelNama"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
-    <!-- Email -->
-    <TextView
-        android:id="@+id/labelEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="14sp"
-        android:textColor="#000"
-        app:layout_constraintTop_toBottomOf="@id/editNama"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <EditText
-        android:id="@+id/editEmail"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_edittext"
-        android:padding="10dp"
-        android:text="khabib@gmail.com"
-        app:layout_constraintTop_toBottomOf="@id/labelEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
-    <!-- Nomor HP dan No Kamar (2 kolom) -->
-    <TextView
-        android:id="@+id/labelPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nomor Handphone / Wa"
-        android:textSize="14sp"
-        android:textColor="#000"
-        app:layout_constraintTop_toBottomOf="@id/editEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_edittext"
-        android:padding="10dp"
-        android:text="0123456789"
-        app:layout_constraintTop_toBottomOf="@id/labelPhone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/roomNumber"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <TextView
-        android:id="@+id/labelRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No. Kamar"
-        android:textSize="14sp"
-        android:textColor="#000"
-        app:layout_constraintTop_toBottomOf="@id/editEmail"
-        app:layout_constraintStart_toEndOf="@+id/phoneNumber"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp" />
-
-    <EditText
-        android:id="@+id/roomNumber"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bg_edittext"
-        android:padding="10dp"
-        android:text="A313"
-        app:layout_constraintTop_toBottomOf="@id/labelRoom"
-        app:layout_constraintStart_toEndOf="@+id/phoneNumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
-    <!-- Tombol Kembali -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/backButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="KEMBALI"
-        android:background="@drawable/button_style"
-        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Nama -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textSize="14sp"
+            android:textColor="#000" />
+
+        <EditText
+            android:id="@+id/editNama"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:text="Khabib Nurmagomedov"
+            android:layout_marginTop="8dp" />
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="14sp"
+            android:textColor="#000"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:text="khabib@gmail.com"
+            android:layout_marginTop="8dp" />
+
+        <!-- No HP & No Kamar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor Handphone/Wa"
+                    android:textSize="14sp"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/phoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_edittext"
+                    android:padding="10dp"
+                    android:text="0123456789"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <Space android:layout_width="16dp" android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No. Kamar"
+                    android:textSize="14sp"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/roomNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_edittext"
+                    android:padding="10dp"
+                    android:text="A313"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Jenis Kendaraan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kendaraan"
+            android:textSize="14sp"
+            android:textColor="#000"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/editKendaraan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:text="Motor"
+            android:layout_marginTop="8dp" />
+
+        <!-- No Kendaraan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Kendaraan"
+            android:textSize="14sp"
+            android:textColor="#000"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/editNoKendaraan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:padding="10dp"
+            android:text="B 1234 X9Z"
+            android:layout_marginTop="8dp" />
+
+        <!-- Tombol -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/backButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="KEMBALI"
+            android:background="@drawable/button_style"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
