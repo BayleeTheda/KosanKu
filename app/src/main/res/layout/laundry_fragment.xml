@@ -11,17 +11,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_editor_absoluteY="40dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         tools:ignore="MissingConstraints">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Mau Laundry apa hari ini?"
-            android:textSize="30dp"
-            android:layout_marginBottom="15dp" />
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/back_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/arrow_back"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mau Laundry Apa Hari Ini?"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/cabin"
+                android:textColor="@color/coklat"
+                />
+        </LinearLayout>
 
         <!-- Container Horizontal untuk Card dan Kontrol -->
         <LinearLayout
@@ -108,17 +124,13 @@
                 android:orientation="vertical"
                 android:layout_marginStart="8dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    app:cardElevation="4dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:layout_height="100dp"
+                    android:background="@drawable/selimut"
+                    />
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_gravity="center"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/selimut" />
-                </androidx.cardview.widget.CardView>
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -488,7 +500,7 @@
                     android:id="@+id/checkbox_morning"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true" />
+                    android:checked="false" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -556,7 +568,7 @@
                 android:id="@+id/persyarata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
+                android:checked="false" />
 
             <TextView
                 android:layout_width="wrap_content"

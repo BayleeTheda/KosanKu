@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuyFoods"
+    android:paddingTop="80dp"
+    android:paddingBottom="80dp">
+    <ScrollView
+        android:id="@+id/scrollViewContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomLayout"
+        android:padding="8dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:id="@+id/mainContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="8dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@android:color/white"
+                    android:elevation="4dp"
+                    android:padding="8dp"
+                    android:layout_marginEnd="4dp">
+                    <ImageView
+                        android:id="@+id/food_image_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:background="#2196F3"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/Rendang"
+                        android:elevation="10dp"
+                        android:contentDescription="Food Image 1" />
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical">
+
+
+                        <TextView
+                            android:id="@+id/food_name_1"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                            android:shadowColor="@color/black"
+                            android:text="Rendang"
+                            android:textColor="@android:color/black"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="17dp"
+                                android:src="@drawable/rating"
+                                android:layout_gravity="bottom"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5/5"
+                                android:textSize="15sp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    
+
+                    <TextView
+                        android:id="@+id/food_qty_available_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sisa 28/30 pcs"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/food_price_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp.8.000,00/pcs"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp">
+
+                        <Button
+                            android:id="@+id/button_minus_1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:text="-"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#F44336"
+                            android:textColor="@android:color/white"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:minWidth="0dp" />
+
+                        <TextView
+                            android:id="@+id/text_quantity_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp" />
+
+                        <Button
+                            android:id="@+id/button_plus_1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:text="+"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="#4CAF50"
+                            android:textColor="@android:color/white"
+                            android:gravity="center"
+                            android:padding="0dp"
+                            android:minWidth="0dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="253dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/food_image_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:background="#2196F3"
+                        android:contentDescription="Food Image 2"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/food_name_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Tunjang Elang"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/food_qty_available_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="qty 30"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_minus_2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:backgroundTint="#F44336"
+                            android:gravity="center"
+                            android:minWidth="0dp"
+                            android:padding="0dp"
+                            android:text="-"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/text_quantity_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="0"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/button_plus_2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:backgroundTint="#4CAF50"
+                            android:gravity="center"
+                            android:minWidth="0dp"
+                            android:padding="0dp"
+                            android:text="+"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E0E0E0"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/textViewTotalPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rp. 15.000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:gravity="end"
+            android:layout_marginEnd="16dp"/>
+
+        <Button
+            android:id="@+id/buttonPesan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pesan"
+            android:backgroundTint="#2196F3"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
