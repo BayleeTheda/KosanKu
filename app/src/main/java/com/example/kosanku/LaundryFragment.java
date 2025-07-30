@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class LaundryFragment extends Fragment {
     @Override
@@ -18,17 +19,32 @@ public class LaundryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.laundry_fragment, container, false);
 
-        Button submit_btn = view.findViewById(R.id.pickup_btn);
+        Button btnKirim = view.findViewById(R.id.pickup_btn);
 
-        submit_btn.setOnClickListener(v -> {
-            // Munculin fragment pending dulu
-            setFragment(new LandingLaundryFragment());
+        btnKirim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
 
-            // Tunggu 5 detik, baru pindah ke fragment tujuan
-            new Handler().postDelayed(() -> {
-                setFragment(new HomeFragment()); // Ganti ke fragment lain
-            }, 5000); // 5000ms = 5 detik
+                // Ganti ke LandingLaundryFragment
+                fragmentManager.beginTransaction()
+                        .replace(android.R.id.content, new LandingLaundryFragment())
+                        .commit();
+
+                // Delay 5 detik, lalu ganti ke PaymentLaundryFragment
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        fragmentManager.beginTransaction()
+                                .replace(android.R.id.content, new LaundryFragment())
+                                .commit();
+                    }
+                }, 5000);
+            }
         });
+
+
+
 
 
         return view;
