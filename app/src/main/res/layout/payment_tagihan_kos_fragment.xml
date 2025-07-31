@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBF4F1"
-    tools:context=".TagihanKosActivity">
+    android:background="#FBF4F1">
 
     <!-- HEADER: Tetap di atas -->
     <LinearLayout

@@ -6,7 +6,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -14,8 +13,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView profileIcon;
-    private View appBar; // Deklarasi untuk App Bar
-    private BottomNavigationView bottomNav; // Deklarasi untuk Bottom Nav
+    private View appBar;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +23,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Inisialisasi semua view
         bottomNav = findViewById(R.id.bottomNav);
-        appBar = findViewById(R.id.app_bar); // Inisialisasi App Bar
+        appBar = findViewById(R.id.app_bar);
         ImageView notif_btn = findViewById(R.id.notification_icon);
         profileIcon = findViewById(R.id.profile_icon);
 
-        // Set fragment awal jika activity baru dibuat
+        // Set fragment awal
         if (savedInstanceState == null) {
             setCurrentFragment(new HomeFragment(), false);
             bottomNav.setSelectedItemId(R.id.home_btn);
         }
 
-        // Listener untuk Bottom Navigation
+        // Bottom Navigation
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.home_btn) {
@@ -47,29 +46,23 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Listener untuk tombol notifikasi
-        notif_btn.setOnClickListener(v -> {
-            setCurrentFragment(new NotificationFragment(), true);
-        });
+        // Notifikasi
+        notif_btn.setOnClickListener(v -> setCurrentFragment(new NotificationFragment(), true));
 
-        // Listener untuk tombol profile
-        profileIcon.setOnClickListener(v -> {
-            setCurrentFragment(new ProfileFragment(), true);
-        });
+        // Profil
+        profileIcon.setOnClickListener(v -> setCurrentFragment(new ProfileFragment(), true));
 
-        // Listener untuk menangani tombol 'kembali'
+        // Pantau perubahan backstack
         handleOnBackPressed();
     }
 
-    private void setCurrentFragment(Fragment fragment, boolean addToBackStack) {
-        // Cek jenis fragment untuk menampilkan/menyembunyikan navigasi
+    public void setCurrentFragment(Fragment fragment, boolean addToBackStack) {
         if (fragment instanceof ProfileFragment) {
-            showNavigation(false); // Sembunyikan jika ProfileFragment
+            showNavigation(false);
         } else {
-            showNavigation(true); // Tampilkan untuk fragment lain
+            showNavigation(true);
         }
 
-        // Lakukan transaksi fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.flFragment, fragment);
 
@@ -80,26 +73,20 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    // Method baru untuk mengatur visibilitas navigasi
-    private void showNavigation(boolean show) {
-        if (show) {
-            appBar.setVisibility(View.VISIBLE);
-            bottomNav.setVisibility(View.VISIBLE);
-        } else {
-            appBar.setVisibility(View.GONE);
-            bottomNav.setVisibility(View.GONE);
-        }
+    public void showNavigation(boolean show) {
+        appBar.setVisibility(show ? View.VISIBLE : View.GONE);
+        bottomNav.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    // Method untuk memastikan navigasi muncul kembali saat tombol back ditekan
     private void handleOnBackPressed() {
         getSupportFragmentManager().addOnBackStackChangedListener(() -> {
             Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flFragment);
+
+            // Jika bukan ProfileFragment, tampilkan navigasi
             if (!(currentFragment instanceof ProfileFragment)) {
-                // Jika fragment yang tampil BUKAN ProfileFragment, pastikan navigasi terlihat
                 showNavigation(true);
 
-                // Update juga item yang aktif di bottom nav
+                // Update selected item di BottomNav
                 if (currentFragment instanceof HomeFragment) {
                     bottomNav.getMenu().findItem(R.id.home_btn).setChecked(true);
                 } else if (currentFragment instanceof QrFragment) {
@@ -109,5 +96,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Jika backstack masih ada, popBackStack
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed(); // Keluar aplikasi
+        }
     }
 }

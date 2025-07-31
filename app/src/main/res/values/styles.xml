@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Tema default aplikasi -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#EB9F4A</item>
         <item name="colorPrimaryDark">#D88A3C</item>
         <item name="colorAccent">#6987FF</item>

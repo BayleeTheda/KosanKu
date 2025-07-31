@@ -87,7 +87,7 @@ public class HistoryTransaction extends Fragment {
         tvHistoryTitle = view.findViewById(R.id.tv_history_title);
         etSearch = view.findViewById(R.id.et_search);
         spinnerAll = view.findViewById(R.id.spinner_all);
-        rvTransactions = view.findViewById(R.id.rv_transactions);
+//        rvTransactions = view.findViewById(R.id.rv_transactions);
 
         // --- Konfigurasi Spinner ---
         // Membuat ArrayAdapter menggunakan array dari strings.xml

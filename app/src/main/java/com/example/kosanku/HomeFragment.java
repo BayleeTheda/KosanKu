@@ -102,6 +102,14 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        CardView bill_btn = view.findViewById(R.id.bill_btn);
+        bill_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new TagihanKosFragment());
+            }
+        });
+
 
 //        CardView food_btn = view.findViewById(R.id.food_btn);
 //        food_btn.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +131,10 @@ public class HomeFragment extends Fragment {
     }
 
     public void setFragment(Fragment fragment){
-        getFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.flFragment, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

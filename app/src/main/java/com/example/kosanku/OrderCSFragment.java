@@ -9,13 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
@@ -35,44 +37,101 @@ public class OrderCSFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.cleaning_service_fragment, container, false);
 
+        // Sembunyikan Topbar & Bottom Nav
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).showNavigation(false);
+        }
+
+        // Set background container fragment agar tidak putih
+        if (getActivity() != null) {
+            View containerView = getActivity().findViewById(R.id.flFragment);
+            if (containerView != null) {
+                containerView.setBackgroundColor(0xFFFBF4F1);
+            }
+        }
+
         // Inisialisasi view
         spinnerNomorKamar = view.findViewById(R.id.spinner_nomor_kamar);
         spinnerJam = view.findViewById(R.id.spinner_jam);
         spinnerArrowKamar = view.findViewById(R.id.spinner_arrow_kamar);
         spinnerArrowJam = view.findViewById(R.id.spinner_arrow_jam);
         dateField = view.findViewById(R.id.date_fieldbar);
+        ImageButton backButton = view.findViewById(R.id.back_btn);
+        Button btnPilihPembayaran = view.findViewById(R.id.backButton); // Tombol Pilih Pembayaran
 
-        // Setup spinner data dan animasi
-        setupSpinner(spinnerNomorKamar, spinnerArrowKamar, new String[]{"A01", "A02", "A03", "B01", "B02", "B03"});
-        setupSpinner(spinnerJam, spinnerArrowJam, new String[]{"07:00 - 11:00", "14:00 - 17:00", "19:00 - 22:00"});
+        // Setup spinner data + font
+        setupSpinner(spinnerNomorKamar, spinnerArrowKamar,
+                new String[]{"A01", "A02", "A03", "B01", "B02", "B03"});
+        setupSpinner(spinnerJam, spinnerArrowJam,
+                new String[]{"07:00 - 11:00", "14:00 - 17:00", "19:00 - 22:00"});
 
         // Inisialisasi date picker
         initDatePicker();
 
-        // Klik untuk menampilkan date picker
+        // Klik date picker
         dateField.setOnClickListener(v -> datePickerDialog.show());
+
+        // Tombol kembali
+        backButton.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
+
+        // Klik tombol "Pilih Pembayaran" -> pindah ke PaymentCsFragment
+        btnPilihPembayaran.setOnClickListener(v -> {
+            Fragment paymentFragment = new PaymentCSFragment();
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, paymentFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
 
         return view;
     }
 
-    // Fungsi untuk setup spinner + panah
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Tampilkan kembali navigasi
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).showNavigation(true);
+        }
+    }
+
+    // Setup spinner dengan font custom + animasi panah
     private void setupSpinner(Spinner spinner, ImageView arrow, String[] data) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 requireContext(),
                 android.R.layout.simple_spinner_dropdown_item,
                 data
-        );
+        ) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text = (TextView) view;
+                text.setTypeface(ResourcesCompat.getFont(requireContext(), R.font.cabin));
+                text.setTextColor(0xFF000000); // hitam
+                return view;
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView text = (TextView) view;
+                text.setTypeface(ResourcesCompat.getFont(requireContext(), R.font.cabin));
+                text.setTextColor(0xFF000000); // hitam
+                return view;
+            }
+        };
         spinner.setAdapter(adapter);
 
         spinner.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                // Rotasi saat dropdown dibuka
                 arrow.animate().rotation(180).setDuration(200).start();
-
-                // Reset panah jika tidak memilih apa-apa dalam 1.5 detik
-                spinner.postDelayed(() -> {
-                    arrow.animate().rotation(0).setDuration(200).start();
-                }, 1500);
+                spinner.postDelayed(() -> arrow.animate().rotation(0).setDuration(200).start(), 1500);
             }
             return false;
         });
@@ -80,23 +139,20 @@ public class OrderCSFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // Reset rotasi saat memilih
                 arrow.animate().rotation(0).setDuration(200).start();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Reset rotasi juga saat tidak memilih
                 arrow.animate().rotation(0).setDuration(200).start();
             }
         });
     }
 
-
     // Setup date picker
     private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, day) -> {
-            month += 1; // Bulan dimulai dari 0
+            month += 1;
             dateField.setText(makeDateString(day, month, year));
         };
 
