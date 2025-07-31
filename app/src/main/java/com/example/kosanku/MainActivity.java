@@ -1,74 +1,110 @@
 package com.example.kosanku;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView profileIcon;
+    private View appBar;
+    private BottomNavigationView bottomNav;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+        // Inisialisasi semua view
+        bottomNav = findViewById(R.id.bottomNav);
+        appBar = findViewById(R.id.app_bar);
+        ImageView notif_btn = findViewById(R.id.notification_icon);
+        profileIcon = findViewById(R.id.profile_icon);
 
-        Fragment homeFragment = new HomeFragment();
-        Fragment qrFragment = new QrFragment();
-        Fragment historyFragment = new HistoryFragment();
-
-        boolean goToHome = getIntent().getBooleanExtra("goToHome", false);
-
-        if (goToHome) {
-            // Tampilkan HomeFragment dan set item nav aktif
-            setCurrentFragment(homeFragment);
-            bottomNavigationView.setSelectedItemId(R.id.home_btn);
-        } else {
-            // Default: tetap tampilkan home
-            setCurrentFragment(homeFragment);
-            bottomNavigationView.setSelectedItemId(R.id.home_btn);
+        // Set fragment awal
+        if (savedInstanceState == null) {
+            setCurrentFragment(new HomeFragment(), false);
+            bottomNav.setSelectedItemId(R.id.home_btn);
         }
 
-        setCurrentFragment(homeFragment);
-        bottomNavigationView.setSelectedItemId(R.id.home_btn);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            if(item.getItemId() == R.id.home_btn){
-                setCurrentFragment(homeFragment);
-                return true;
-            }else if(item.getItemId() == R.id.qr_btn){
-                setCurrentFragment(qrFragment);
-                return true;
-            }else if(item.getItemId() == R.id.history_btn){
-                setCurrentFragment(historyFragment);
-                return true;
+        // Bottom Navigation
+        bottomNav.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home_btn) {
+                setCurrentFragment(new HomeFragment(), false);
+            } else if (itemId == R.id.qr_btn) {
+                setCurrentFragment(new QrFragment(), false);
+            } else if (itemId == R.id.history_btn) {
+                setCurrentFragment(new HistoryFragment(), false);
             }
             return true;
         });
 
-        ImageView notif_btn = findViewById(R.id.notification_icon);
+        // Notifikasi
+        notif_btn.setOnClickListener(v -> setCurrentFragment(new NotificationFragment(), true));
 
+        // Profil
+        profileIcon.setOnClickListener(v -> setCurrentFragment(new ProfileFragment(), true));
 
+        // Pantau perubahan backstack
+        handleOnBackPressed();
+    }
 
-        notif_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setCurrentFragment(new NotificationFragment());
+    public void setCurrentFragment(Fragment fragment, boolean addToBackStack) {
+        if (fragment instanceof ProfileFragment) {
+            showNavigation(false);
+        } else {
+            showNavigation(true);
+        }
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.flFragment, fragment);
+
+        if (addToBackStack) {
+            transaction.addToBackStack(fragment.getClass().getSimpleName());
+        }
+
+        transaction.commit();
+    }
+
+    public void showNavigation(boolean show) {
+        appBar.setVisibility(show ? View.VISIBLE : View.GONE);
+        bottomNav.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    private void handleOnBackPressed() {
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flFragment);
+
+            // Jika bukan ProfileFragment, tampilkan navigasi
+            if (!(currentFragment instanceof ProfileFragment)) {
+                showNavigation(true);
+
+                // Update selected item di BottomNav
+                if (currentFragment instanceof HomeFragment) {
+                    bottomNav.getMenu().findItem(R.id.home_btn).setChecked(true);
+                } else if (currentFragment instanceof QrFragment) {
+                    bottomNav.getMenu().findItem(R.id.qr_btn).setChecked(true);
+                } else if (currentFragment instanceof HistoryFragment) {
+                    bottomNav.getMenu().findItem(R.id.history_btn).setChecked(true);
+                }
             }
         });
     }
 
-    private void setCurrentFragment(Fragment fragment){
-        getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, fragment).commit();
+    @Override
+    public void onBackPressed() {
+        // Jika backstack masih ada, popBackStack
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed(); // Keluar aplikasi
+        }
     }
 }

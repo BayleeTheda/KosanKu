@@ -63,7 +63,7 @@
                         android:layout_height="120dp"
                         android:background="#2196F3"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/Rendang"
+                        android:src="@drawable/rendang"
                         android:elevation="10dp"
                         android:contentDescription="Food Image 1" />
                     
