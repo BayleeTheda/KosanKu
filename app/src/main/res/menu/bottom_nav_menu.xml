@@ -6,12 +6,12 @@
         android:icon="@drawable/home_24dp_e3e3e3_fill0_wght400_grad0_opsz24"/>
 
     <item
-        android:id="@+id/qr_btn"
         android:title=""
-        android:icon="@drawable/qr_code_24dp_e3e3e3_fill0_wght400_grad0_opsz24"/>
+        android:iconTint="@color/ivory"
+        android:enabled="false"/>
 
     <item
         android:id="@+id/history_btn"
         android:title="History"
-        android:icon="@drawable/history_2_24dp_e3e3e3_fill0_wght400_grad0_opsz24"/>
+        android:icon="@drawable/receipt_long_24dp_e3e3e3_fill0_wght400_grad0_opsz24"/>
 </menu>

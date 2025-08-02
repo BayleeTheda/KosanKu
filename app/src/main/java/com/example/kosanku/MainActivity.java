@@ -3,17 +3,18 @@ package com.example.kosanku;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ImageView profileIcon;
-    private View appBar;
+    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flFragment);
+//    private RelativeLayout appBar;
     private BottomNavigationView bottomNav;
 
     @Override
@@ -21,39 +22,49 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inisialisasi semua view
-        bottomNav = findViewById(R.id.bottomNav);
-        appBar = findViewById(R.id.app_bar);
-        ImageView notif_btn = findViewById(R.id.notification_icon);
-        profileIcon = findViewById(R.id.profile_icon);
-
         // Set fragment awal
-        if (savedInstanceState == null) {
-            setCurrentFragment(new HomeFragment(), false);
-            bottomNav.setSelectedItemId(R.id.home_btn);
+        setCurrentFragment(new HomeFragment(), false);
+//        if (savedInstanceState == null) {
+//            setCurrentFragment(new HomeFragment(), false);
+//        }
+
+        if(currentFragment instanceof HomeFragment){
+
+            // Inisialisasi semua view
+            bottomNav = findViewById(R.id.bottomNav);
+            ImageView profileIcon;
+//            appBar = findViewById(R.id.app_bar);
+            ImageView notif_btn = findViewById(R.id.notification_icon);
+            profileIcon = findViewById(R.id.profile_icon);
+
+            // Bottom Navigation
+            bottomNav.setOnItemSelectedListener(item -> {
+                int itemId = item.getItemId();
+                if (itemId == R.id.home_btn) {
+                    setCurrentFragment(new HomeFragment(), false);
+                } else if (itemId == R.id.history_btn) {
+                    setCurrentFragment(new HistoryFragment(), false);
+                }
+                return true;
+            });
+
+            FloatingActionButton qr_btn = findViewById(R.id.qr_btn);
+            qr_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setCurrentFragment(new QrFragment(), false);
+                }
+            });
+
+            // Notifikasi
+            notif_btn.setOnClickListener(v -> setCurrentFragment(new NotificationFragment(), true));
+
+            // Profil
+            profileIcon.setOnClickListener(v -> setCurrentFragment(new ProfileFragment(), true));
+
+            // Pantau perubahan backstack
+//            handleOnBackPressed();
         }
-
-        // Bottom Navigation
-        bottomNav.setOnItemSelectedListener(item -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.home_btn) {
-                setCurrentFragment(new HomeFragment(), false);
-            } else if (itemId == R.id.qr_btn) {
-                setCurrentFragment(new QrFragment(), false);
-            } else if (itemId == R.id.history_btn) {
-                setCurrentFragment(new HistoryFragment(), false);
-            }
-            return true;
-        });
-
-        // Notifikasi
-        notif_btn.setOnClickListener(v -> setCurrentFragment(new NotificationFragment(), true));
-
-        // Profil
-        profileIcon.setOnClickListener(v -> setCurrentFragment(new ProfileFragment(), true));
-
-        // Pantau perubahan backstack
-        handleOnBackPressed();
     }
 
     public void setCurrentFragment(Fragment fragment, boolean addToBackStack) {
@@ -74,29 +85,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showNavigation(boolean show) {
-        appBar.setVisibility(show ? View.VISIBLE : View.GONE);
-        bottomNav.setVisibility(show ? View.VISIBLE : View.GONE);
+//        appBar.setVisibility(show ? View.VISIBLE : View.GONE);
+//        bottomNav.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    private void handleOnBackPressed() {
-        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
-            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flFragment);
-
-            // Jika bukan ProfileFragment, tampilkan navigasi
-            if (!(currentFragment instanceof ProfileFragment)) {
-                showNavigation(true);
-
-                // Update selected item di BottomNav
-                if (currentFragment instanceof HomeFragment) {
-                    bottomNav.getMenu().findItem(R.id.home_btn).setChecked(true);
-                } else if (currentFragment instanceof QrFragment) {
-                    bottomNav.getMenu().findItem(R.id.qr_btn).setChecked(true);
-                } else if (currentFragment instanceof HistoryFragment) {
-                    bottomNav.getMenu().findItem(R.id.history_btn).setChecked(true);
-                }
-            }
-        });
-    }
+//    private void handleOnBackPressed() {
+//        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+//
+//            // Jika bukan ProfileFragment, tampilkan navigasi
+//            if (!(currentFragment instanceof ProfileFragment)) {
+//                BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+//                showNavigation(true);
+//
+//                // Update selected item di BottomNav
+//                if (currentFragment instanceof HomeFragment) {
+//                    bottomNav.getMenu().findItem(R.id.home_btn).setChecked(true);
+//                } else if (currentFragment instanceof QrFragment) {
+//                    bottomNav.getMenu().findItem(R.id.qr_btn).setChecked(true);
+//                } else if (currentFragment instanceof HistoryFragment) {
+//                    bottomNav.getMenu().findItem(R.id.history_btn).setChecked(true);
+//                }
+//            }
+//        });
+//    }
 
     @Override
     public void onBackPressed() {
