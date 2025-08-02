@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,7 @@ public class HistoryFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private BottomNavigationView bottomNav;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -59,6 +64,50 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_history_transaction, container, false);
+
+        //WARNING
+        // Inisialisasi semua view
+        bottomNav = view.findViewById(R.id.bottomNav);
+        ImageView profileIcon;
+//            appBar = findViewById(R.id.app_bar);
+        ImageView notif_btn = view.findViewById(R.id.notification_icon);
+        profileIcon = view.findViewById(R.id.profile_icon);
+
+        // Bottom Navigation
+        bottomNav.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home_btn) {
+                setFragment(new HomeFragment());
+            } else if (itemId == R.id.history_btn) {
+                setFragment(new HistoryFragment());
+            }
+            return true;
+        });
+
+        FloatingActionButton qr_btn = view.findViewById(R.id.qr_btn);
+        qr_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new QrFragment());
+            }
+        });
+
+        // Notifikasi
+        notif_btn.setOnClickListener(v -> setFragment(new NotificationFragment()));
+
+        // Profil
+        profileIcon.setOnClickListener(v -> setFragment(new ProfileFragment()));
+
+        return view;
+    }
+
+
+    public void setFragment(Fragment fragment){
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.flFragment, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

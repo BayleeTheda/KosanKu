@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomNavParent"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/maroon"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="0dp"
+            >
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:outlineSpotShadowColor="@color/transparent"
+                android:id="@+id/bottomNav"
+                app:menu="@menu/bottom_nav_menu"
+                app:itemIconTint="@color/ivory"
+                app:itemTextColor="@color/ivory"
+                app:itemActiveIndicatorStyle="@color/pale_gray"
+                app:itemTextAppearanceActiveBoldEnabled="true"
+                />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/qr_btn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:fabCustomSize="80dp"
+            android:backgroundTint="@color/maroon"
+            app:tint="@color/ivory"
+            android:src="@drawable/qr_code_24dp_e3e3e3_fill0_wght400_grad0_opsz24"
+            app:maxImageSize="40dp"
+            app:layout_anchor="@id/bottomNavParent"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
