@@ -7,11 +7,16 @@
     android:background="@color/white"
     android:id="@+id/qr_code">
 
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/appbar"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:ignore="MissingConstraints"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         >
@@ -21,17 +26,23 @@
             android:layout_height="wrap_content"
             android:text="QR Code"
             android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:fontFamily="@font/cabin"
+            android:textColor="@color/coklat"
             android:layout_marginTop="100dp"
             />
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="460dp"
+            android:layout_marginTop="15dp"
+            app:cardCornerRadius="10dp">
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="460dp"
-            android:background="@drawable/rounded_box"
-            android:layout_marginTop="15dp">
+            android:background="#E0DBD8"
+            >
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -57,6 +68,7 @@
 
             <TextView
             android:id="@+id/note"
+                android:fontFamily="@font/cabin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Note : "
@@ -68,6 +80,7 @@
         <TextView
             android:id="@+id/peringatan"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/cabin"
             android:layout_height="wrap_content"
             android:text="Jangan bagikan QR Anda kepada siapapun!"
             android:textColor="@color/red"
@@ -91,6 +104,7 @@
                     android:textAlignment="center"
                     android:textColor="#292F36"
                     android:textSize="16dp"
+                    android:fontFamily="@font/cabin"
                     android:textStyle="bold"
                     android:layout_marginLeft="90dp"
                     />
@@ -99,12 +113,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="05.00"
+                    android:fontFamily="@font/cabin"
                 android:textAlignment="center"
-                android:textColor="#A41F13"
+                android:textColor="@color/red"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:layout_marginLeft="5dp"/>
             </LinearLayout>
         </FrameLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <include android:id="@+id/bottom_app_bar"
+        layout="@layout/bottom_appbar"/>
 </FrameLayout>

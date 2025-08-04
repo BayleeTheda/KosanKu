@@ -14,9 +14,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast; // Opsional: untuk notifikasi singkat
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList; // Untuk contoh data RecyclerView
 
@@ -87,7 +91,7 @@ public class HistoryTransaction extends Fragment {
         tvHistoryTitle = view.findViewById(R.id.tv_history_title);
         etSearch = view.findViewById(R.id.et_search);
         spinnerAll = view.findViewById(R.id.spinner_all);
-        rvTransactions = view.findViewById(R.id.rv_transactions);
+//        rvTransactions = view.findViewById(R.id.rv_transactions);
 
         // --- Konfigurasi Spinner ---
         // Membuat ArrayAdapter menggunakan array dari strings.xml

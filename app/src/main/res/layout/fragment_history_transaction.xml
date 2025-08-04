@@ -5,16 +5,18 @@
     android:id="@+id/ht"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoryTransaction"
-    android:background="#f0f0f0"
-    android:paddingTop="80dp">
+    tools:context=".HistoryTransaction">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/appbar"/>
 
     <TextView
         android:id="@+id/tv_history_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="104dp"
         android:text="History Transaction"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -309,5 +311,8 @@
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <include android:id="@+id/bottom_app_bar"
+        layout="@layout/bottom_appbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

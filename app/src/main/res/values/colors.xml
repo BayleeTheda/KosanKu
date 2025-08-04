@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#292F36</color>
     <color name="white">#FAF5F1</color>
+    <color name="white2">#FFFFFF</color>
     <color name="red">#A41F13</color>
     <color name="gray">#E0DBD8</color>
     <color name="brown">#8F7A6E</color>
@@ -11,4 +12,5 @@
     <color name="dark_gray">#292F36</color>
     <color name="taupe">#8F7A6E</color>
     <color name="transparent">#00000000</color>
+    <color name="coklat">#53141D</color>
 </resources>
