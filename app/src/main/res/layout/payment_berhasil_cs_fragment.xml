@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tagihan Kos"
+            android:text="Tagihan Cleaning Service"
             android:textSize="24sp"
             android:fontFamily="@font/cabin"
             android:textStyle="bold"
@@ -61,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/red_rounded"
                 android:padding="8dp"
-                android:text="Detail Penyewaan"
+                android:text="Detail Cleaning Service"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -86,22 +87,21 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="8dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/cabin"
-                            android:text="Nama"
+                            android:text="Cleaning Service"
                             android:textSize="20dp"
                             android:textColor="#53141D" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin"
-                            android:text="Fikri Gam"
-                            android:textSize="15dp"
+                            android:text="Rp 150.000"
+                            android:textSize="17dp"
                             android:textColor="#53141D" />
                     </LinearLayout>
 
@@ -109,8 +109,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="16dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -124,20 +123,31 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cabin"
                             android:text="A312"
-                            android:textSize="15dp"
+                            android:textSize="17dp"
                             android:textColor="#53141D" />
                     </LinearLayout>
 
-                    <!-- Total Tagihan -->
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Total Tagihan Sewa :"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/cabin"
-                        android:layout_marginBottom="8dp"
-                        android:textSize="20dp"
-                        android:textColor="#53141D" />
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cabin"
+                            android:text="12 Agustus 1945"
+                            android:textColor="#828282" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cabin"
+                            android:text="17.00 - 19.00 WIB"
+                            android:textColor="#828282"
+                            android:textSize="13dp"/>
+                    </LinearLayout>
+
 
                     <!-- Detail Tagihan -->
                     <LinearLayout
@@ -145,93 +155,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Wifi -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="4dp">
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/cabin"
-                                android:text="Wifi"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#53141D" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/cabin"
-                                android:text="Rp 50.000,00"
-                                android:textColor="#53141D" />
-                        </LinearLayout>
 
-                        <!-- Keamanan -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="4dp">
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/cabin"
-                                android:text="Keamanan"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#53141D" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/cabin"
-                                android:text="Rp 50.000,00"
-                                android:textColor="#53141D" />
-                        </LinearLayout>
-
-                        <!-- Kebersihan -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="4dp">
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/cabin"
-                                android:text="Kebersihan"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#53141D" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/cabin"
-                                android:text="Rp 50.000,00"
-                                android:textColor="#53141D" />
-                        </LinearLayout>
-
-                        <!-- Biaya Layanan -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="8dp">
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/cabin"
-                                android:text="Biaya Layanan"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#53141D" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/cabin"
-                                android:text="Rp 50.000,00"
-                                android:textColor="#53141D" />
-                        </LinearLayout>
 
                         <!-- Garis Pemisah -->
                         <View
@@ -329,7 +253,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notes : Laundry kamu akan di proses setelah kamu membayar!"
+                android:text="Notes : Cleaning Service akan diproses setelah pembayaran!"
                 android:textColor="#FF0000"
                 android:textSize="12sp"
                 android:fontFamily="@font/cabin"
@@ -348,5 +272,64 @@
 
         </LinearLayout>
     </ScrollView>
+
+
+    <!-- ================= POPUP PEMBAYARAN BERHASIL ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/black"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_dialog_white"
+        android:padding="20dp"
+        android:gravity="center_horizontal"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/close_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:src="@drawable/close"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/berhasil"
+            android:tint="#81C784"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pembayaran berhasil"
+            android:textColor="#7B1F23"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/cabin"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin"
+            android:text="Selamat pembayaran Anda berhasil"
+            android:textColor="#7B1F23"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
