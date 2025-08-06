@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.google.android.material.button.MaterialButton;
@@ -113,7 +114,7 @@ public class VehicleParkFragment extends Fragment {
         at.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         time_field.setAdapter(at);
 
-        MaterialButton back_btn = view.findViewById(R.id.back_btn);
+        ImageButton back_btn = view.findViewById(R.id.back_btn);
         MaterialButton confirm_btn = view.findViewById(R.id.confirm_btn);
 
         back_btn.setOnClickListener(new View.OnClickListener() {

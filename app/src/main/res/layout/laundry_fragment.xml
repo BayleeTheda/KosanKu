@@ -7,13 +7,16 @@
     android:background="@color/white"
     >
     <LinearLayout
+        android:id="@+id/header_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
         <ImageButton
             android:id="@+id/back_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/arrow_back"
             android:layout_gravity="center"
             />
@@ -32,12 +35,11 @@
     <ScrollView
         android:id="@+id/scrollViewContent"
         android:layout_width="match_parent"
-        android:layout_height="603dp"
-        android:layout_above="@+id/bottomLayout"
-        android:layout_marginTop="40dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_layout"
         android:layout_marginBottom="8dp"
         android:padding="8dp"
-        android:paddingTop="20dp">
+        android:paddingTop="30dp">
 
         <LinearLayout
             android:id="@+id/mainContentLayout"
@@ -675,6 +677,10 @@
                         android:textColor="@color/coklat"/>
                 </LinearLayout>
             </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical"/>
         </LinearLayout>
     </ScrollView>
 

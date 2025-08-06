@@ -8,10 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -30,6 +34,7 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private BottomNavigationView bottomNav;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -68,6 +73,40 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        //WARNING
+        // Inisialisasi semua view
+        bottomNav = view.findViewById(R.id.bottomNav);
+        ImageView profileIcon;
+//            appBar = findViewById(R.id.app_bar);
+        ImageView notif_btn = view.findViewById(R.id.notification_icon);
+        profileIcon = view.findViewById(R.id.profile_icon);
+
+        // Bottom Navigation
+        bottomNav.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home_btn) {
+                setFragment(new HomeFragment());
+            } else if (itemId == R.id.history_btn) {
+                setFragment(new HistoryFragment());
+            }
+            return true;
+        });
+
+        FloatingActionButton qr_btn = view.findViewById(R.id.qr_btn);
+        qr_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new QrFragment());
+            }
+        });
+
+        // Notifikasi
+        notif_btn.setOnClickListener(v -> setFragment(new NotificationFragment()));
+
+        // Profil
+        profileIcon.setOnClickListener(v -> setFragment(new ProfileFragment()));
+
+
         ImageSlider banner = view.findViewById(R.id.banner);
 
         ArrayList<SlideModel> slideBanner = new ArrayList<>();
@@ -78,7 +117,7 @@ public class HomeFragment extends Fragment {
 
         banner.setImageList(slideBanner, ScaleTypes.CENTER_INSIDE);
 
-        CardView vehicle_btn = view.findViewById(R.id.vehicle_btn);
+        LinearLayout vehicle_btn = view.findViewById(R.id.vehicle_btn);
         vehicle_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +125,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        CardView laundry_btn = view.findViewById(R.id.laundry_btn);
+        LinearLayout laundry_btn = view.findViewById(R.id.laundry_btn);
         laundry_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +133,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        CardView cleaning_btn = view.findViewById(R.id.cleaning_btn);
+        LinearLayout cleaning_btn = view.findViewById(R.id.cleaning_btn);
         cleaning_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +141,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        CardView bill_btn = view.findViewById(R.id.bill_btn);
+        LinearLayout bill_btn = view.findViewById(R.id.bill_btn);
         bill_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +158,7 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-        CardView report_btn = view.findViewById(R.id.report_btn);
+        LinearLayout report_btn = view.findViewById(R.id.report_btn);
         report_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
