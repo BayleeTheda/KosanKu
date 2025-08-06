@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -28,7 +29,7 @@ public class LaundryFragment extends Fragment {
 
                 // Ganti ke LandingLaundryFragment
                 fragmentManager.beginTransaction()
-                        .replace(android.R.id.content, new LandingLaundryFragment())
+                        .replace(R.id.flFragment, new LandingLaundryFragment())
                         .commit();
 
                 // Delay 5 detik, lalu ganti ke PaymentLaundryFragment
@@ -36,16 +37,20 @@ public class LaundryFragment extends Fragment {
                     @Override
                     public void run() {
                         fragmentManager.beginTransaction()
-                                .replace(android.R.id.content, new LaundryFragment())
+                                .replace(R.id.flFragment, new LaundryFragment())
                                 .commit();
                     }
                 }, 5000);
             }
         });
 
-
-
-
+        ImageButton back_btn = view.findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new HomeFragment());
+            }
+        });
 
         return view;
     }
