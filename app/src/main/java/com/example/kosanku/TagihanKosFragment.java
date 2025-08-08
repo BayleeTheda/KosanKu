@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,13 @@ public class TagihanKosFragment extends Fragment {
         View view = inflater.inflate(R.layout.payment_tagihan_kos_fragment, container, false);
 
         AppCompatButton bayarButton = view.findViewById(R.id.backButton);
+
+        ImageButton backBtn = view.findViewById(R.id.back_btn);
+        backBtn.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
         bayarButton.setOnClickListener(v -> {
             // Kirim tipe pembayaran "kos"

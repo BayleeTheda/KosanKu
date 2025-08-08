@@ -80,10 +80,10 @@ public class OrderCSFragment extends Fragment {
 
         // Klik tombol "Pilih Pembayaran" -> pindah ke PaymentCsFragment
         btnPilihPembayaran.setOnClickListener(v -> {
-            Fragment reportTagihanFragment = ReportTagihanFragment.newInstance("cs");
+            Fragment paymentFragment = new PaymentCSFragment();
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.flFragment, reportTagihanFragment)
+                    .replace(R.id.flFragment, paymentFragment)
                     .addToBackStack(null)
                     .commit();
         });
