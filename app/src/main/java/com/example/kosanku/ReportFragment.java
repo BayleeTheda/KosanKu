@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.cardview.widget.CardView;
@@ -29,8 +30,16 @@ public class ReportFragment extends Fragment {
         spinner.setAdapter(adapter);
 
         Button submit_btn = view.findViewById(R.id.send_btn);
+        ImageButton back_btn = view.findViewById(R.id.back_btn);
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(new HomeFragment());
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setFragment(new HomeFragment());
