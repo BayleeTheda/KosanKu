@@ -39,7 +39,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tagihan Makanan"
+                    android:text="Tagihan Laundry"
                     android:textSize="24sp"
                     android:fontFamily="@font/cabin"
                     android:textStyle="bold"
@@ -85,16 +85,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Rendang"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
+                                android:text="Selimut"
                                 android:textColor="#53141D"
                                 android:textSize="16sp"
                                 android:textStyle="bold"/>
@@ -118,16 +109,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Tunjang"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
+                                android:text="Pakaian"
                                 android:textColor="#53141D"
                                 android:textSize="16sp"
                                 android:textStyle="bold"/>
@@ -151,16 +133,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Bebek Goreng"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
+                                android:text="Sepatu"
                                 android:textColor="#53141D"
                                 android:textSize="16sp"
                                 android:textStyle="bold"/>
@@ -184,16 +157,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Jengkol"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
+                                android:text="Jas/Almamater"
                                 android:textColor="#53141D"
                                 android:textSize="16sp"
                                 android:textStyle="bold"/>
@@ -207,8 +171,53 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="0dp"
+                            android:orientation="horizontal">
 
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Topi"
+                                android:textColor="#53141D"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 25.000"
+                                android:textColor="#53141D"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="0dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Tas"
+                                android:textColor="#53141D"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 25.000"
+                                android:textColor="#53141D"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                         <View
                             android:layout_width="match_parent"
@@ -233,10 +242,9 @@
                                 />
 
                             <TextView
-                                android:id="@+id/total_harga_makanan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Rp 100.000"
+                                android:text="Rp 150.000"
                                 android:textColor="#53141D"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -357,11 +365,11 @@
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/BayarButtonMakanan"
+        <Button
+            android:id="@+id/BayarButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/button_style"
+            android:backgroundTint="@color/maroon"
             android:fontFamily="@font/cabin"
             android:text="Bayar"
             android:textColor="#FFFFFF" />

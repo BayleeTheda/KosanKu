@@ -114,7 +114,7 @@
                     android:id="@+id/countdown_timer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="23 jam 58 ment 30 detik"
+                    android:text="23 jam 57 ment 25 detik"
                     android:fontFamily="@font/cabin"
                     android:textStyle="bold"
                     android:textColor="#53141D"
@@ -211,12 +211,12 @@
             android:textSize="26sp"/>
 
         <!-- Tombol Refresh -->
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/refreshButton"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:text="Refresh"
-            android:backgroundTint="@color/maroon"
+            android:background="@drawable/button_style"
             android:textColor="#FFFFFF"
             android:layout_marginTop="35dp"
             android:fontFamily="@font/cabin"
