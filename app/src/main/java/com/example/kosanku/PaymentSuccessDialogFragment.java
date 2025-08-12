@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager; // <-- Tambahkan baris ini
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
 
 public class PaymentSuccessDialogFragment extends DialogFragment {
 
@@ -32,7 +34,8 @@ public class PaymentSuccessDialogFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.dialog_payment_success, container, false);
+//        View view = inflater.inflate(R.layout.dialog_payment_success, container, false);
+        View view = inflater.inflate(R.layout.pembayaran_berhasil_dialog, container, false);
 
         // Mengatur background transparan untuk dialog
         if (getDialog() != null && getDialog().getWindow() != null) {
@@ -43,14 +46,34 @@ public class PaymentSuccessDialogFragment extends DialogFragment {
         }
 
         // Menambahkan listener untuk tombol close
-        ImageView ivClose = view.findViewById(R.id.ivCloseDialog);
+        ImageView ivClose = view.findViewById(R.id.btn_closepopup);
         ivClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss(); // Menutup dialog
+                // Menutup dialog terlebih dahulu
+                dismiss();
+
+                // Mengarahkan ke HomeFragment
+                // Menggunakan getParentFragmentManager() untuk mengelola fragment dari activity utama
+                FragmentManager fragmentManager = getParentFragmentManager();
+                if (fragmentManager != null) {
+                    // Membuat instance HomeFragment
+                    Fragment homeFragment = new HomeFragment();
+
+                    // Memulai transaksi fragment
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                    // Mengganti fragment saat ini dengan HomeFragment
+                    transaction.replace(R.id.flFragment, homeFragment);
+
+                    // Menghapus semua fragment dari back stack untuk kembali ke halaman utama
+                    fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                    // Melakukan commit pada transaksi
+                    transaction.commit();
+                }
             }
         });
-
         return view;
     }
 

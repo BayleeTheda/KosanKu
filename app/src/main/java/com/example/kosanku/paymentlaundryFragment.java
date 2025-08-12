@@ -1,6 +1,8 @@
 package com.example.kosanku;
 
 import android.os.Bundle;
+
+import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager; // Import FragmentManager
 import androidx.fragment.app.FragmentTransaction; // Import FragmentTransaction
@@ -63,7 +65,7 @@ public class paymentlaundryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_paymentlaundry, container, false);
 
         // Temukan tombol "Bayar" berdasarkan ID-nya
-        Button btnPay = view.findViewById(R.id.btn_pay);
+        Button btnPay = view.findViewById(R.id.BayarButton);
 
         // Atur OnClickListener untuk tombol "Bayar"
         btnPay.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +76,7 @@ public class paymentlaundryFragment extends Fragment {
 
                 // Dapatkan FragmentManager
                 // Gunakan getParentFragmentManager() untuk komunikasi antar fragmen dalam satu Activity.
-                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentManager fragmentManager = getFragmentManager();
 
                 // Mulai Transaksi Fragmen
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -82,13 +84,13 @@ public class paymentlaundryFragment extends Fragment {
                 // Ganti fragmen saat ini dengan fragmen ReportTagihanLaundry
                 // R.id.fragment_container harus menjadi ID dari FrameLayout atau container
                 // di layout Activity Anda tempat Anda menampilkan fragmen-fragmen Anda.
-                fragmentTransaction.replace(R.id.report_tagihanBaru, reportTagihanLaundryFragment);
+                fragmentTransaction.replace(R.id.flFragment, reportTagihanLaundryFragment).commit();
 
                 // Tambahkan transaksi ke back stack (opsional, tapi bagus untuk navigasi)
-                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.addToBackStack(null);
 
                 // Commit transaksi
-                fragmentTransaction.commit();
+//                fragmentTransaction.commit();
             }
         });
 
