@@ -1,375 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/white">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:id="@+id/payment_makanan"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
         android:orientation="vertical"
-        android:background="@color/white">
+        app:layout_editor_absoluteY="60dp"
+        >
 
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:background="@drawable/rounded_box">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                android:padding="15dp"
 
-                android:paddingVertical="12dp"
-                android:background="#FBF4F1">
-                <ImageButton
-                    android:id="@+id/back_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/arrow_back"
-                    android:contentDescription="Kembali" />
+                >
 
+                <!-- Judul -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tagihan Makanan"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/cabin"
+                    android:text="Warung Makan Bahari"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/coklat"
-                    android:layout_marginStart="10dp" />
-            </LinearLayout>
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="12dp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                <!-- Daftar Pesanan -->
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#a41f13"
-                        android:padding="8dp"
-                        android:text="Detail laundry"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Usus"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
+
+                        <TextView
+                            android:layout_width="248dp"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:text="x1"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="Rp 3.000"
+                            android:textSize="16sp"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="15dp">
+                        android:orientation="horizontal">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="0dp"
-                            android:orientation="horizontal">
+                            android:text="Telor"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Rendang"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 25.000"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:layout_width="248dp"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:text="x2"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="0dp"
-                            android:orientation="horizontal">
+                            android:textAlignment="center"
+                            android:text="Rp 6.000"
+                            android:textSize="16sp"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Tunjang"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 25.000"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="0dp"
-                            android:orientation="horizontal">
+                            android:text="Nasi"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Bebek Goreng"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 25.000"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:layout_width="251dp"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:text="x1"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="0dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Jengkol"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="1 (pcs)"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 25.000"
-                                android:textColor="#53141D"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:background="@color/grey_font" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Total"
-                                android:textColor="#53141D"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                />
-
-                            <TextView
-                                android:id="@+id/total_harga_makanan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="Rp 100.000"
-                                android:textColor="#53141D"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
+                            android:textAlignment="center"
+                            android:text="Rp 4.000"
+                            android:textSize="16sp"
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Biaya Pesanan                                               Rp 1.000"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="50dp" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="1dp"
+                    android:background="#888"
+                    android:layout_marginBottom="-10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Bayar:                                     Rp 14.000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="18dp" />
+
+                <!-- Metode Pembayaran -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Metode Pembayaran:"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="30dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="5dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_gopay"
+                        android:layout_width="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#a41f13"
-                        android:padding="8dp"
-                        android:text="Metode Pembayaran"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
-                        android:id="@+id/rg_payment_methods"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <CheckBox
-                                android:id="@+id/checkbox_gopay"
-                                android:layout_width="match_parent"
-                                android:layout_height="34dp"
-                                android:fontFamily="@font/cabin"
-                                android:text="Gopay"
-                                android:textColor="#53141D"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <CheckBox
-                                android:layout_width="match_parent"
-                                android:layout_height="34dp"
-                                android:fontFamily="@font/cabin"
-                                android:text="Ovo"
-                                android:textColor="#53141D"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <CheckBox
-                                android:layout_width="match_parent"
-                                android:layout_height="34dp"
-                                android:fontFamily="@font/cabin"
-                                android:text="Dana"
-                                android:textColor="#53141D"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <CheckBox
-                                android:layout_width="320dp"
-                                android:layout_height="34dp"
-                                android:fontFamily="@font/cabin"
-                                android:text="Virtual Account BCA"
-                                android:textColor="#53141D"
-                                android:textSize="20dp" />
-                        </LinearLayout>
-
-                    </RadioGroup>
-
+                        android:text="Gopay"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="5dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="70dp"
-                android:text="Notes : Laundry kamu akan di proses setelah kamu membayar!"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="11sp" />
+                    <CheckBox
+                        android:id="@+id/checkbox_ovo"
+                        android:layout_width="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ovo"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="5dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_dana"
+                        android:layout_width="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dana"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="5dp">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_bank"
+                        android:layout_width="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tombol Bayar -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/BayarButtonMakanan"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
-            android:background="@drawable/button_style"
-            android:fontFamily="@font/cabin"
             android:text="Bayar"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/white"
+            android:background="@drawable/button_style"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="15dp"/>
     </LinearLayout>
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

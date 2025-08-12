@@ -150,13 +150,13 @@ public class HomeFragment extends Fragment {
         });
 
 
-        LinearLayout food_btn = view.findViewById(R.id.food_btn);
-        food_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setFragment(new BuyFoods());
-            }
-        });
+//        CardView food_btn = view.findViewById(R.id.food_btn);
+//        food_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setFragment(new FoodFragment());
+//            }
+//        });
 
         LinearLayout report_btn = view.findViewById(R.id.report_btn);
         report_btn.setOnClickListener(new View.OnClickListener() {
