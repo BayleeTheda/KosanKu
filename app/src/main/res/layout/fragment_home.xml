@@ -85,12 +85,11 @@
                     app:cardCornerRadius="20dp"
                     android:backgroundTint="@color/brown"
                     >
-
                     <ImageView
-                        android:layout_width="51dp"
-                        android:layout_height="49dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/food" />
+                        android:src="@drawable/food"/>
                 </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="match_parent"

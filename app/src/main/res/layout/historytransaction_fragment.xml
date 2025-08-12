@@ -5,9 +5,7 @@
     android:id="@+id/ht"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:layout_marginBottom="80dp"
-    android:layout_marginTop="80dp">
+    android:background="#f0f0f0">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,9 +20,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="History Transaction"
-            android:textColor="#571a22"
+            android:textColor="@android:color/black"
             android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/search_bar_layout"
@@ -56,7 +56,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
-                android:background="#ffffff"/>
+
+                />
+
         </LinearLayout>
 
 
