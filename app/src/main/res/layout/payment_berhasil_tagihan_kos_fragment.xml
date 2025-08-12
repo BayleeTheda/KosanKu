@@ -377,6 +377,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/close_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="end"
