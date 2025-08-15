@@ -33,6 +33,7 @@
     </LinearLayout>
 
     <ScrollView
+        android:layout_marginTop="10dp"
         android:id="@+id/scrollViewContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -334,7 +335,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Selimut"
+                        android:text="Jas"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -342,7 +343,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp 45.000,00/pcs"
+                        android:text="Rp 20.000,00/pcs"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="14sp" />
 
@@ -428,7 +429,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:shadowColor="@color/black"
-                            android:text="Sepatu"
+                            android:text="Tas"
                             android:textColor="@color/coklat"
                             android:textSize="19sp"
                             android:textStyle="bold" />
@@ -438,7 +439,7 @@
                         android:id="@+id/food_price_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp 45.000,00/pcs"
+                        android:text="Rp 30.000,00/pcs"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="14sp" />
 
@@ -510,7 +511,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Selimut"
+                        android:text="Topi"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -519,7 +520,7 @@
                         android:id="@+id/food_qty_available_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rp 45.000,00/pcs"
+                        android:text="Rp 15.000,00/pcs"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="14sp" />
 
@@ -590,11 +591,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageButton
+                    <CheckBox
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/check_box"
+                        android:fontFamily="@font/cabin"
+                        android:textColor="#53141D"
                         />
 
                     <TextView
@@ -613,11 +615,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageButton
+                    <CheckBox
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="58dp"
-                        android:background="@drawable/check_box"
+                        android:fontFamily="@font/cabin"
+                        android:textColor="#53141D"
                         />
 
                     <TextView
@@ -635,11 +638,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageButton
+                    <CheckBox
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="85dp"
-                        android:background="@drawable/check_box"
+                        android:fontFamily="@font/cabin"
+                        android:textColor="#53141D"
                         />
 
                     <TextView
@@ -659,11 +663,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageButton
+                    <CheckBox
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginTop="130dp"
-                        android:background="@drawable/check_box"
+                        android:fontFamily="@font/cabin"
+                        android:textColor="#53141D"
                         />
 
                     <TextView
@@ -679,7 +684,7 @@
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:orientation="vertical"/>
         </LinearLayout>
     </ScrollView>

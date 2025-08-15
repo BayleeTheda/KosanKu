@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import java.util.Calendar;
 
@@ -57,7 +58,6 @@ public class OrderCSFragment extends Fragment {
         spinnerArrowJam = view.findViewById(R.id.spinner_arrow_jam);
         dateField = view.findViewById(R.id.date_fieldbar);
         ImageButton backButton = view.findViewById(R.id.back_btn);
-        Button btnPilihPembayaran = view.findViewById(R.id.backButton); // Tombol Pilih Pembayaran
 
         // Setup spinner data + font
         setupSpinner(spinnerNomorKamar, spinnerArrowKamar,
@@ -78,13 +78,15 @@ public class OrderCSFragment extends Fragment {
             }
         });
 
-        // Klik tombol "Pilih Pembayaran" -> pindah ke PaymentCsFragment
-        btnPilihPembayaran.setOnClickListener(v -> {
-            Fragment paymentFragment = new PaymentCSFragment();
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.flFragment, paymentFragment)
-                    .addToBackStack(null)
+        // Ambil tombol pembayaran
+        Button btnKirim = view.findViewById(R.id.pembayaran);
+
+        // Listener tombol
+        btnKirim.setOnClickListener(v -> {
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.flFragment, new PaymentCSFragment())
+                    .addToBackStack(null) // supaya bisa kembali
                     .commit();
         });
 

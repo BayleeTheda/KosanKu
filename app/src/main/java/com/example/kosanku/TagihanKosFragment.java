@@ -1,16 +1,17 @@
 package com.example.kosanku;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
 
 public class TagihanKosFragment extends Fragment {
 
@@ -19,26 +20,28 @@ public class TagihanKosFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.payment_tagihan_kos_fragment, container, false);
 
-        AppCompatButton bayarButton = view.findViewById(R.id.backButton);
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
 
-        ImageButton backBtn = view.findViewById(R.id.back_btn);
-        backBtn.setOnClickListener(v -> {
-            if (getActivity() != null) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
+        // Tombol Bayar
+        Button btnKirim = view.findViewById(R.id.bayar_btn);
+        btnKirim.setOnClickListener(v -> {
+            // Langsung ganti ke LandingLaundryFragment
+            fragmentManager.beginTransaction()
+                    .replace(R.id.flFragment, new ReportTagihanKosFragment())
+                    .addToBackStack(null) // opsional, supaya bisa kembali
+                    .commit();
+
         });
 
-        bayarButton.setOnClickListener(v -> {
-            // Kirim tipe pembayaran "kos"
-            Fragment reportTagihanFragment = ReportTagihanFragment.newInstance("kos");
-            FragmentTransaction transaction = requireActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction();
-            transaction.replace(R.id.flFragment, reportTagihanFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
+        // Tombol Back
+        ImageButton back_btn = view.findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager().popBackStack(); // kembali ke fragment sebelumnya
+            }
         });
 
         return view;

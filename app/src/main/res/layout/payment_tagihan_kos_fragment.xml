@@ -324,7 +324,7 @@
 
             <!-- Tombol Bayar -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/backButton"
+                android:id="@+id/bayar_btn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="Bayar"

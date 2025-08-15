@@ -37,7 +37,7 @@ public class LaundryFragment extends Fragment {
                     @Override
                     public void run() {
                         fragmentManager.beginTransaction()
-                                .replace(R.id.flFragment, new LaundryFragment())
+                                .replace(R.id.flFragment, new paymentlaundryFragment())
                                 .commit();
                     }
                 }, 5000);

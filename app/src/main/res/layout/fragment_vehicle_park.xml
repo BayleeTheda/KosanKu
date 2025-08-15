@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".VehicleParkFragment">
+    tools:context=".VehicleParkFragment"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -329,6 +330,7 @@
                 app:layout_constraintBottom_toTopOf="@id/bedroom_fieldbar_wrap"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/bedroom_fieldbar_wrap"
                 android:layout_width="match_parent"
@@ -349,27 +351,27 @@
                     android:paddingEnd="5dp"
                     />
             </com.google.android.material.card.MaterialCardView>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <CheckBox
             android:id="@+id/acceptence_confirmation"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Persetujuan persyaratan"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp">
+            android:layout_height="55dp"
+            android:layout_marginTop="0dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/confirm_btn"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:cornerRadius="8dp"
-                android:padding="-3dp"
                 android:text="Daftar"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:backgroundTint="@color/maroon"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
